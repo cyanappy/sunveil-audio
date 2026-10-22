@@ -1,0 +1,67 @@
+name: Windows VST3 builds
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-vst3-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test ${{ matrix.pedal }}
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        pedal: [Sundrive, Afterglow, Glassgarden]
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Configure Windows x64
+        run: cmake -S "${{ matrix.pedal }}" -B "build/${{ matrix.pedal }}" -G "Visual Studio 17 2022" -A x64
+
+      - name: Build plugin and tests
+        run: cmake --build "build/${{ matrix.pedal }}" --config Release --parallel 2
+
+      - name: Run native Windows tests
+        run: ctest --test-dir "build/${{ matrix.pedal }}" -C Release --output-on-failure --timeout 180
+
+      - name: Package unsigned development bundle
+        run: |
+          $pedal = "${{ matrix.pedal }}"
+          $bundle = "build/$pedal/$pedal.vst3"
+          $notices = "$bundle/Contents/Resources/ThirdPartyNotices"
+          New-Item -ItemType Directory -Force -Path $notices | Out-Null
+          Copy-Item "$pedal/ThirdPartyNotices/*" $notices
+          Copy-Item "$pedal/LICENSE.txt" "$notices/$pedal-LICENSE.txt"
+          New-Item -ItemType Directory -Force -Path artifacts | Out-Null
+          Copy-Item $bundle artifacts -Recurse
+          @{
+            product = $pedal
+            repository = $env:GITHUB_REPOSITORY
+            sourceCommit = $env:GITHUB_SHA
+            workflowRunId = $env:GITHUB_RUN_ID
+            status = "Unsigned development build; not a signed release or malware clearance"
+          } | ConvertTo-Json | Set-Content artifacts/BUILD-INFO.json -Encoding utf8
+
+      - name: Upload validation artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: unsigned-${{ matrix.pedal }}-windows-x64-vst3
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 14
