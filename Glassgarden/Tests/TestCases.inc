@@ -42,7 +42,9 @@ static void uiTests(IPluginFactory* factory){
         SendMessageW(child,WM_LBUTTONDBLCLK,MK_LBUTTON,MAKELPARAM(xx,yy));SendMessageW(child,WM_LBUTTONUP,0,MAKELPARAM(xx,yy));
         check(p.controller->getParamNormalized(Freeze)==0,"rapid switch clicks include the DBLCLK press");
     }
-    int x=268*600/artwork::W,y=281*900/artwork::H;double old=p.controller->getParamNormalized(GrainSize);SendMessageW(child,WM_LBUTTONDOWN,MK_LBUTTON,MAKELPARAM(x,y));SendMessageW(child,WM_MOUSEMOVE,MK_LBUTTON,MAKELPARAM(x,y-25));SendMessageW(child,WM_LBUTTONUP,0,MAKELPARAM(x,y-25));check(p.controller->getParamNormalized(GrainSize)>old,"knob drag edits a host parameter");check(p.handler.begins==p.handler.ends,"native editor closes every automation gesture");
+    // Target the Grain Size control whose parameter is asserted below.
+    const auto grainKnob=artwork::knobs[GrainSize];
+    int x=grainKnob.x*600/artwork::W,y=grainKnob.y*900/artwork::H;double old=p.controller->getParamNormalized(GrainSize);SendMessageW(child,WM_LBUTTONDOWN,MK_LBUTTON,MAKELPARAM(x,y));SendMessageW(child,WM_MOUSEMOVE,MK_LBUTTON,MAKELPARAM(x,y-25));SendMessageW(child,WM_LBUTTONUP,0,MAKELPARAM(x,y-25));check(p.controller->getParamNormalized(GrainSize)>old,"knob drag edits a host parameter");check(p.handler.begins==p.handler.ends,"native editor closes every automation gesture");
     check(std::abs(p.controller->getParamNormalized(GrainSize)-std::min(1.,old+25./240))<1.e-12,"native knob drag retains client-pixel precision");
     p.controller->setParamNormalized(GrainSize,1);
     SendMessageW(child,WM_LBUTTONDOWN,MK_LBUTTON,MAKELPARAM(x,y));const int edits=p.handler.edits;

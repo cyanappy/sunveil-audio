@@ -58,6 +58,20 @@ For detailed build notes see [Sundrive/BUILDING.md](Sundrive/BUILDING.md),
 they are retained as source for those helpers and are not source-build commands.
 The projects use C++17 and native Windows editors; JUCE is not required.
 
+## Automated Windows builds
+
+[GitHub Actions](https://github.com/cyanappy/sunveil-audio/actions/workflows/windows-build.yml)
+builds each pedal with Visual Studio 2022 on Windows x64 and runs its configured
+native tests. Successful runs retain unsigned VST3 validation artifacts with
+license notices and source-commit information. These are development artifacts;
+installer signing and release publishing are separate steps.
+
+## Code signing policy
+
+The SignPath Foundation application is being prepared. Signing has not been
+approved or activated. See the [code signing policy](CODE_SIGNING.md) for build
+verification, maintainer roles, manual release approval, and privacy information.
+
 ## Validation status
 
 The per-pedal validation documents record checks performed for the original
