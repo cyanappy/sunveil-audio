@@ -1,0 +1,11 @@
+Magic			020b	(PE32+)
+DllCharacteristics	00000160
+	DLL Name: GDI32.dll
+	DLL Name: gdiplus.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: msvcrt.dll
+	DLL Name: ole32.dll
+	DLL Name: USER32.dll
+	[   0] ExitDll
+	[   1] GetPluginFactory
+	[   2] InitDll

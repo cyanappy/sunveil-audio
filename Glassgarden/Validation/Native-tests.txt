@@ -1,0 +1,58 @@
+Start testing: Oct 22 21:07 JST
+----------------------------------------------------------
+1/3 Testing: native_vst3_contract
+1/3 Test: native_vst3_contract
+Command: "/workspace/scratch/0dcd517215e3/glassgarden-build-deps/native/GlassgardenHostTests" "/workspace/scratch/0dcd517215e3/glassgarden-build-deps/native/Glassgarden.vst3/Contents/x86_64-linux/Glassgarden.so"
+Directory: /workspace/scratch/0dcd517215e3/glassgarden-build-deps/native
+"native_vst3_contract" start time: Oct 22 21:07 JST
+Output:
+----------------------------------------------------------
+VST3 host contract passed.
+Pitch -12 st: 120 Hz target, coherent magnitude 12248.89
+Pitch +0 st: 240 Hz target, coherent magnitude 12248.16
+Pitch +12 st: 480 Hz target, coherent magnitude 12245.26
+Pitch +24 st: 960 Hz target, coherent magnitude 12233.69
+Freeze late/early energy: 1.1844
+DSP: 10 seconds rendered in 0.0719 s (0.72% of one core on this test machine)
+PASS: 3639080 checks.
+<end of output>
+Test time =   1.27 sec
+----------------------------------------------------------
+Test Passed.
+"native_vst3_contract" end time: Oct 22 21:08 JST
+"native_vst3_contract" time elapsed: 00:00:01
+----------------------------------------------------------
+
+2/3 Testing: realtime_allocations
+2/3 Test: realtime_allocations
+Command: "/workspace/scratch/0dcd517215e3/glassgarden-build-deps/native/GlassgardenRealtimeTests"
+Directory: /workspace/scratch/0dcd517215e3/glassgarden-build-deps/native
+"realtime_allocations" start time: Oct 22 21:08 JST
+Output:
+----------------------------------------------------------
+PASS: 200000 stereo frames, automation and clear-buffer: zero heap allocations.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_allocations" end time: Oct 22 21:08 JST
+"realtime_allocations" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: editor_interaction
+3/3 Test: editor_interaction
+Command: "/workspace/scratch/0dcd517215e3/glassgarden-build-deps/native/GlassgardenEditorTests"
+Directory: /workspace/scratch/0dcd517215e3/glassgarden-build-deps/native
+"editor_interaction" start time: Oct 22 21:08 JST
+Output:
+----------------------------------------------------------
+PASS: 383 editor checks (drag precision, fine control, resize sensitivity, coalescing, limits and redraw regions).
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"editor_interaction" end time: Oct 22 21:08 JST
+"editor_interaction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 22 21:08 JST

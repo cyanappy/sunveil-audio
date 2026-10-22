@@ -1,0 +1,22 @@
+{
+  "design": "Full-length minimum-phase FIR, 4x oversampling",
+  "taps_per_filter": 129,
+  "reported_latency_samples": 5,
+  "previous_latency_samples": 32,
+  "dc_delay_before_alignment_samples": 4.823690698690669,
+  "fractional_alignment_delay_samples": 0.1763093013093311,
+  "alignment_allpass_coefficient": 0.700233091563445,
+  "identity_impulse_peak_samples": 6,
+  "maximum_single_filter_magnitude_difference_db": 1.5430325311285777e-08,
+  "comparison_band_high_rate_nyquist_fraction": [
+    0,
+    0.2
+  ],
+  "stopband_high_rate_nyquist_fraction": [
+    0.3,
+    1
+  ],
+  "previous_worst_stopband_db": -79.07364126899077,
+  "updated_worst_stopband_db": -79.07364257332931,
+  "notes": "Minimum-phase filters have frequency-dependent phase delay; the host value is aligned at DC."
+}

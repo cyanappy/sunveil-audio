@@ -1,0 +1,43 @@
+{
+  "Name": "Afterglow",
+  "Version": "1.0.1",
+  "Factory Info": {
+    "Vendor": "Sunveil Audio",
+    "URL": "",
+    "E-Mail": "",
+    "Flags": {
+      "Unicode": true,
+      "Classes Discardable": false,
+      "Component Non Discardable": false
+    }
+  },
+  "Classes": [
+    {
+      "CID": "2D1AC732E0494D75BCB17B30633632F1",
+      "Category": "Audio Module Class",
+      "Name": "Afterglow",
+      "Vendor": "Sunveil Audio",
+      "Version": "1.0.1",
+      "SDKVersion": "VST 3.8.1",
+      "Sub Categories": [
+        "Fx",
+        "Delay",
+        "Reverb"
+      ],
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": []
+    },
+    {
+      "CID": "AB4175FD63724684A6E3E91FA1230E5B",
+      "Category": "Component Controller Class",
+      "Name": "Afterglow Controller",
+      "Vendor": "Sunveil Audio",
+      "Version": "1.0.1",
+      "SDKVersion": "VST 3.8.1",
+      "Class Flags": 0,
+      "Cardinality": 2147483647,
+      "Snapshots": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Windows x64 VST3 cross-build inspection (not a Windows execution test).
+Architecture: PE32+ x86-64
+Exports: ExitDll, GetPluginFactory, InitDll
+Imports: GDI32.dll, gdiplus.dll, KERNEL32.dll, msvcrt.dll, ole32.dll, USER32.dll
+Embedded PNG resource: present
+Source and bundle metadata version: 1.0.1
+DSP source, parameter IDs/defaults/ranges, and plugin identities unchanged from 1.0.0.
+Only the version string differs in Parameters.h.

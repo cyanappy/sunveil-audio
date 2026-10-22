@@ -1,0 +1,6 @@
+Checked 10/52 redraw states.
+Checked 20/52 redraw states.
+Checked 30/52 redraw states.
+Checked 40/52 redraw states.
+Checked 50/52 redraw states.
+PASS: 52 incremental redraws match full rendering at 600x900 and 1200x1800 (within one 8-bit color level for antialiased edges).

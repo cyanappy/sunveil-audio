@@ -1,0 +1,6 @@
+VST3 host contract passed.
+Freeze late/early energy: 1.0427
+DSP: 10 seconds rendered in 0.1699 s (1.70% of one core on this test machine)
+PASS: 2620118 checks.
+PASS: 200000 stereo frames, automation and clear-tails: zero heap allocations.
+PASS: 422 editor checks (drag precision, fine control, resize sensitivity, coalescing, limits and redraw regions).

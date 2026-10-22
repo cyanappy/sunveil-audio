@@ -1,0 +1,4 @@
+Low-latency impulse peak: 6 samples; DC delay: 5.000000000; magnitude difference: 9.32053958e-08 dB.
+PASS: oversampling alignment, unity gain, and EQ response.
+PASS: factory, parameters, bus layouts, latency, automation, precision, robustness, and state.
+ALL PASS: 398193 checks in 0.380 seconds.
